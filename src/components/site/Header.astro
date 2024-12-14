@@ -1,0 +1,39 @@
+---
+import Navigation from "./Navigation.astro";
+
+const { siteTitle } = Astro.props;
+---
+<header class="site-header">
+
+    <div class="site-branding">
+        <p class="site-title">
+            <a href="/">{ siteTitle }</a>
+        </p>
+    </div>
+
+    <Navigation /> 
+
+</header>
+
+<style>
+
+    header {
+        padding-block-start: 1em;
+        
+        p {
+            padding: 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .site-branding {
+            a {
+                display: block;
+                color: #369;
+            }
+        }
+
+        
+    }
+
+</style>

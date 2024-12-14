@@ -1,0 +1,58 @@
+---
+const items = [
+        {
+            label: 'Home',
+            location: '/',
+        },
+        {
+            label: 'Typography',
+            location: '/typography',
+        },
+        {
+            label: 'Blog',
+            location: '/blog',
+        },
+        {
+            label: 'Quotes',
+            location: '/quotes',
+        },
+        {
+            label: 'Contacts',
+            location: '/Contacts',
+        }
+    ];
+---
+<nav>
+    <ul>
+        {items.map(item => (
+            <li>
+                <a href={item.location}>
+                    {item.label}
+                </a>
+            </li>
+        ))}
+    </ul>
+</nav>
+
+<style>
+
+    nav {
+
+        ul {
+            display: flex;
+            gap: 1em;
+        }
+
+        li {
+            display: block;
+            list-style: none outside;
+        }
+
+        a {
+            display: block;
+            color: #369;
+        }
+        
+    }
+
+</style>

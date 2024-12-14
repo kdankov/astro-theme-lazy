@@ -1,22 +1,55 @@
-<!doctype html>
+---
+import { site } from '../utils/constants';
+import Header from '../components/site/Header.astro';
+import Footer from '../components/site/Footer.astro';
+
+const { title } = Astro.props;
+
+const titleTag = title ?? site.title;
+
+const bodyClasses = ['page'];
+
+import styles from '../assets/styles/site.css';
+import favicon from '../assets/images/favicon.svg';
+---
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		
+        <link rel="icon" type="image/svg+xml" href={ favicon.src } />
+        <link rel="stylesheet" href={styles} >
+
+        <!-- TODO: Add slot head stuff -->
+        <!-- TODO: Socials integration -->
+        <!-- TODO: Google Analytics stuff -->
+
+		<title>{ titleTag }</title>
 	</head>
-	<body>
-		<slot />
+	<body class:list={ bodyClasses }>
+
+        <div class="site">
+
+            <Header siteTitle="Lazy" />
+
+            <main class="site-content">
+
+                <slot />
+
+            </main>
+
+            <Footer />
+
+        </div>
+
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+
+    body {
+        padding-inline: 2em;
+    }
+
 </style>
